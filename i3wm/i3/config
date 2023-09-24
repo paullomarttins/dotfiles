@@ -16,7 +16,7 @@ set $mod Mod4
 font pango:Ubuntu Regular 10
 
 # shortcut for Lockscreen
-# set $i3lockwall i3lock -i /home/pmartins/Pictures/wallpaper/linux_tux.png -t
+# set $i3lockwall i3lock -i /home/$USER/Pictures/wallpaper/linux_tux.png -t
 set $i3lockwall /home/$USER/.config/i3lock/blur_script.sh -t
 bindsym $mod+l exec --no-startup-id $i3lockwall
 
@@ -251,4 +251,4 @@ exec_always --no-startup-id picom --config /home/$USER/.config/i3/picom.conf
 exec --no-startup-id /usr/lib/policykit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
-exec_always --no-startup-id feh --bg-fill /home/pmartins/Pictures/wallpaper
+exec_always --no-startup-id feh --bg-fill /home/$USER/Pictures/wallpaper
