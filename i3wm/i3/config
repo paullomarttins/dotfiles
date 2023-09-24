@@ -16,8 +16,9 @@ set $mod Mod4
 font pango:Ubuntu Regular 10
 
 # shortcut for Lockscreen
-set $i3lockwall i3lock -i /home/pmartins/Pictures/wallpaper/linux_tux.png -t
-bindsym $mod+l exec i3lock -i /home/pmartins/Pictures/wallpaper/linux_tux.png -t
+# set $i3lockwall i3lock -i /home/pmartins/Pictures/wallpaper/linux_tux.png -t
+set $i3lockwall /home/$USER/.config/i3lock/blur_script.sh -t
+bindsym $mod+l exec --no-startup-id $i3lockwall
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -237,10 +238,11 @@ bar {
 # /* ---------------------------- Autostart applications ------------------------------- */
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/pmartins/Pictures/wallpaper/linux_tux.png -t --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $i3lockwall --nofork
 exec --no-startup-id nm-applet
 exec_always --no-startup-id numlockx on
 exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-notifyd
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id pamac-tray
