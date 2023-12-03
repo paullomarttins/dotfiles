@@ -117,6 +117,7 @@ workspace_auto_back_and_forth yes
 
 # enable floating mode for applications windows
 for_window [class="Galculator"] floating enable
+for_window [class="(?i)keepassxc"] floating enable
 
 # /* ----------------------------------------------------------------------------------- */
 # /* -------------------------------- Workspaces --------------------------------------- */
@@ -160,13 +161,12 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # /* ----------------------------------------------------------------------------------- */
 # /* ----------------- Menu shutdown / restart / suspend / logout ---------------------- */
 
-set $mode_system System (e) Logout, (s) Suspend, (h) Hibernate, (r) Reboot, (CTRL+s) Shutdown
+set $mode_system System (e) Logout, (s) Suspend, (r) Reboot, (CTRL+s) Shutdown
 
 mode "$mode_system" {
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"	
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"	
     bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
@@ -201,9 +201,9 @@ bindsym $mod+r mode "resize"
 
 # color schemes for window 
 #set $bgcolor    #331A3A
-set $bgcolor    #261C2C
+set $bgcolor    #333333
 set $in-bgcolor #363636
-set $text       #ffffff
+set $text       #EAEAEA
 set $u-bgcolor  #ff0000
 set $indicator  #a8a3c1
 set $in-text    #969696
@@ -220,6 +220,7 @@ client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcol
 bar {
 
         status_command i3status -c /home/$USER/.config/i3status/i3status.conf
+	position top
 	tray_output primary
 	tray_padding 5
         font pango:Open Sans 11
@@ -229,10 +230,12 @@ bar {
 
 	colors {
                 background $bgcolor
-                separator #191919
+		statusline #FFFFFF
+                separator #666666
                 #                       border          background      text
-                focused_workspace       #5C527F         #5C527F         $text
-                inactive_workspace      #261C2C         #261C2C         $text
+                focused_workspace       #5F676A         #535353         $text
+                active_workspace	#414141		#414141		$text
+		inactive_workspace      #222222         #222222         #888888
                 urgent_workspace        $u-bgcolor      $u-bgcolor      $text   
 
         }
@@ -252,8 +255,7 @@ exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id pamac-tray
 exec_always --no-startup-id xset b off
 exec_always --no-startup-id picom --config /home/$USER/.config/i3/picom.conf
-# exec --no-startup-id /usr/lib/policykit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
-exec_always --no-startup-id feh --bg-fill /home/$USER/Pictures/wallpaper
+exec_always --no-startup-id feh --bg-fill /home/$USER/Pictures/wallpaper/007.jpg
