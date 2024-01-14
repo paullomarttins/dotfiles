@@ -115,6 +115,9 @@ bindsym $mod+Shift+r restart
 # automatic back-and-forth when switching to the current workspace
 workspace_auto_back_and_forth yes
 
+# for windows open mode in workspaces
+workspace_layout tabbed
+
 # enable floating mode for applications windows
 for_window [class="Galculator"] floating enable
 for_window [class="(?i)keepassxc"] floating enable
@@ -202,7 +205,7 @@ bindsym $mod+r mode "resize"
 # color schemes for window 
 #set $bgcolor    #331A3A
 set $bgcolor    #333333
-set $in-bgcolor #363636
+set $in-bgcolor #5F676A
 set $text       #EAEAEA
 set $u-bgcolor  #ff0000
 set $indicator  #a8a3c1
