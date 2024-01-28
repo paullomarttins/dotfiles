@@ -13,7 +13,7 @@
 set $mod Mod4
 
 # Font for window titles and system.
-font pango:Ubuntu Regular 10
+font pango:JetBrains Mono Regular 10
 
 # shortcut for Lockscreen
 # set $i3lockwall i3lock -i /home/$USER/Pictures/wallpaper/linux_tux.png -t
@@ -200,6 +200,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # /* ----------------------------------------------------------------------------------- */
+# /* --------------------------- Set external displays --------------------------------- */
+
+# Set the shortcuts and what they do
+set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+mode "$mode_display" {
+    bindsym v exec --no-startup-id xrandr --output eDP-1 --primary --output VGA1 --right-of eDP-1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output eDP-1 --primary --output HDMI-1 --right-of eDP-1, mode "default"
+    bindsym x exec --no-startup-id xrandr --output VGA1 --auto --off, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI-1 --auto --off, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Declare here the shortcut to bring the display selection menu
+bindsym $mod+x mode "$mode_display"
+
+# /* ----------------------------------------------------------------------------------- */
 # /* --------------------------- Set colors -------------------------------------------- */
 
 # color schemes for window 
@@ -226,7 +244,7 @@ bar {
 	position top
 	tray_output primary
 	tray_padding 5
-        font pango:Open Sans 11
+        font pango:JetBrains Mono Regular 11
         workspace_min_width 25
         # 0px top, 4px right, 0px bottom, 4px left
         padding 0 4px 0 4px
