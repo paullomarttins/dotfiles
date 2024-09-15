@@ -13,7 +13,8 @@
 set $mod Mod4
 
 # Font for window titles and system.
-font pango:JetBrains Mono Regular 10
+#font pango:JetBrains Mono Regular 10
+font pango:Terminess Nerd Font 10
 
 # shortcut for Lockscreen
 # set $i3lockwall i3lock -i /home/$USER/Pictures/wallpaper/linux_tux.png -t
@@ -35,7 +36,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # start Rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -45,6 +47,9 @@ title_align center
 
 # all window titles bold
 #for_window [class=".*"] title_format "<b>%title</b>"
+
+# remove window borders
+for_window [class="^.*"] border pixel 0
 
 # adjust screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -57,6 +62,9 @@ bindsym Print exec --no-startup-id flameshot gui
 gaps inner 10
 gaps outer 0
 #smart_gaps on
+
+# Hide borders
+hide_edge_borders none
 
 # eliminate title window
 for_window [class="^.*"] border pixel 1
@@ -223,13 +231,14 @@ bindsym $mod+x mode "$mode_display"
 # color schemes for window 
 #set $bgcolor    #331A3A
 set $bgcolor    #333333
-set $in-bgcolor #5F676A
+set $bgcolor-bd #595959
+set $in-bgcolor #414141
 set $text       #EAEAEA
 set $u-bgcolor  #ff0000
-set $indicator  #a8a3c1
+set $indicator  #b1fb98
 set $in-text    #969696
 #                       border          background      text            indicator (a line which shows where the next window will be placed)     
-client.focused          $bgcolor        $bgcolor        $text           $indicator
+client.focused          $bgcolor-bd    	$bgcolor        $text           $indicator
 client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor 
@@ -243,10 +252,9 @@ bar {
         status_command i3status -c /home/$USER/.config/i3status/i3status.conf
 	position top
 	tray_output primary
-	tray_padding 5
-        font pango:JetBrains Mono Regular 11
-        workspace_min_width 25
-        # 0px top, 4px right, 0px bottom, 4px left
+	tray_padding 2
+	font pango:Terminess Nerd Font 12
+	workspace_min_width 25
         padding 0 4px 0 4px
 
 	colors {
@@ -254,7 +262,7 @@ bar {
 		statusline #FFFFFF
                 separator #666666
                 #                       border          background      text
-                focused_workspace       #5F676A         #535353         $text
+                focused_workspace       #b1fb98         #b1fb98         #000000
                 active_workspace	#414141		#414141		$text
 		inactive_workspace      #222222         #222222         #888888
                 urgent_workspace        $u-bgcolor      $u-bgcolor      $text   
@@ -273,7 +281,7 @@ exec --no-startup-id xfce4-clipman
 exec --no-startup-id xfce4-notifyd
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id blueman-applet
-exec_always --no-startup-id pamac-tray
+#exec_always --no-startup-id pamac-tray
 exec_always --no-startup-id xset b off
 exec_always --no-startup-id picom --config /home/$USER/.config/i3/picom.conf
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
