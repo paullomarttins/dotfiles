@@ -252,7 +252,7 @@ bar {
         status_command i3status -c /home/$USER/.config/i3status/i3status.conf
 	position top
 	tray_output primary
-	tray_padding 2
+	tray_padding 4
 	font pango:Terminess Nerd Font 12
 	workspace_min_width 25
         padding 0 4px 0 4px
@@ -281,10 +281,11 @@ exec --no-startup-id xfce4-clipman
 exec --no-startup-id xfce4-notifyd
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id blueman-applet
-#exec_always --no-startup-id pamac-tray
+# exec_always --no-startup-id pamac-tray
 exec_always --no-startup-id xset b off
 exec_always --no-startup-id picom --config /home/$USER/.config/i3/picom.conf
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
-exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
+# exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
+exec_always --no-startup-id /home/$USER/.config/i3/dualmonitor.sh
 exec_always --no-startup-id feh --bg-fill /home/$USER/Pictures/wallpaper/007.jpg
