@@ -6,11 +6,11 @@ normal = { family = "Terminess Nerd Font", style = "Medium" }
 bold = { family = "Terminess Nerd Font", style = "Bold" }
 italic = { family = "Terminess Nerd Font", style = "Medium Italic" }
 bold_italic = { family = "Terminess Nerd Font", style = "Bold Italic" }
-size = 12
+size = 10
 
 [window]
 title = "Alacritty"
-dynamic_title = true
+dynamic_title = false
 padding = { x = 3, y = 3 }
 dynamic_padding = true
 
@@ -22,5 +22,6 @@ save_to_clipboard = true
 bindings = [
 { key = "F", mods = "Control|Shift", action = "SearchForward" },
 { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
-{ key = "V", mods = "Control|Shift", action = "Paste" }
+{ key = "V", mods = "Control|Shift", action = "Paste" },
+{ key = "M", mods = "Control|Shift", action = "CreateNewWindow" }
 ]
