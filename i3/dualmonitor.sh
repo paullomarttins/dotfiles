@@ -7,3 +7,11 @@ if xrandr | grep "$externo disconnected"; then
 else
 	xrandr --output "$interno" --primary --auto --output $externo --right-of "$interno" --auto
 fi
+
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload example &
+  done
+else
+  polybar --reload example &
+fi
