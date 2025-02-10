@@ -13,11 +13,10 @@
 set $mod Mod4
 
 # Font for window titles and system.
-font pango:MesloLGS Nerd Font Mono Bold 10
+font pango:Ubuntu Nerd Font 10
 
 # shortcut for Lockscreen
-# set $i3lockwall i3lock -i /home/$USER/Pictures/wallpaper/linux_tux.png -t
-set $i3lockwall /home/$USER/.config/i3lock/blur_script.sh -t
+set $i3lockwall /home/$USER/.config/i3lock/blur_script.sh
 bindsym $mod+l exec --no-startup-id $i3lockwall
 
 # Use pactl to adjust volume in PulseAudio.
@@ -61,6 +60,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set -5%
 
 # start Flameshot Screenshot
 bindsym Print exec --no-startup-id flameshot gui
+
+# Color picker
+bindsym $mod+o exec --no-startup-id xcolor -s
 
 # define borders gaps
 gaps inner 5
@@ -128,11 +130,14 @@ bindsym $mod+Shift+r restart
 workspace_auto_back_and_forth yes
 
 # for windows open mode in workspaces
-workspace_layout tabbed
+#workspace_layout tabbed
 
 # enable floating mode for applications windows
 for_window [class="Galculator"] floating enable
 for_window [class="(?i)keepassxc"] floating enable
+
+# Autotiling
+exec_always --no-startup-id autotiling
 
 # /* ----------------------------------------------------------------------------------- */
 # /* -------------------------------- Workspaces --------------------------------------- */
@@ -240,7 +245,7 @@ set $bgcolor-bd #595959
 set $in-bgcolor #414141
 set $text       #EAEAEA
 set $u-bgcolor  #ff0000
-set $indicator  #b1fb98
+set $indicator  #CDC1FF
 set $in-text    #969696
 #                       border          background      text            indicator (a line which shows where the next window will be placed)     
 client.focused          $bgcolor #b4befe	$bgcolor-bd     $text           $indicator
@@ -250,19 +255,19 @@ client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcol
 
 # /* ----------------------------------------------------------------------------------- */
 bar {
-    status_command i3blocks
+    status_command i3blocks -c ~/.config/i3blocks/config
     position top
     # tray_output auto
-	tray_padding 0
+	tray_padding 3
 	strip_workspace_numbers yes
-	font pango:MesloLGS Nerd Font Mono 12
+	font pango:Ubuntu Nerd Font 11
 	workspace_min_width 25
-    padding 0 4px 0 4px
+    # padding 0 4px 0 4px
 
 	colors {
             background $barcolor statusline #FFFFFF  separator #666666
             # border          background      text
-            focused_workspace #b1fb98         #b1fb98         #000000
+            focused_workspace #5F5D9C         #5F5D9C         #EDE4FF
             active_workspace  #414141		#414141		$text
 		    inactive_workspace #222222         #222222         #888888
             urgent_workspace $u-bgcolor      $u-bgcolor      $text
