@@ -37,8 +37,8 @@ HLBG_COLOR="${HLBG_COLOR:-#bbbbbb}"
 BORDER_COLOR="${BORDER_COLOR:-#222222}"
 
 # Options not related to colors
-ROFI_TEXT="${ROFI_TEXT:-Menu:}"
-ROFI_OPTIONS=(${ROFI_OPTIONS:--theme-str 'window {width: 11%; border: 2;} listview {scrollbar: false;}' -location 3})
+ROFI_TEXT="${ROFI_TEXT:-Menu}"
+ROFI_OPTIONS=(${ROFI_OPTIONS:--theme-str 'window {width: 10%; border: 1;} listview {scrollbar: false;}' -location 3})
 
 # Zenity options
 ZENITY_TITLE="${ZENITY_TITLE:-Menu}"
@@ -116,9 +116,9 @@ typeset -A menu
 menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
-  [Hibernate]="systemctl hibernate"
+  #[Hibernate]="systemctl hibernate"
   [Suspend]="systemctl suspend"
-  [Halt]="systemctl halt"
+  #[Halt]="systemctl halt"
   [Lock]="${LOCKSCRIPT:-i3lock --color=${BG_COLOR#"#"}}"
   [Logout]="i3-msg exit"
   [Cancel]=""
@@ -126,7 +126,7 @@ menu=(
 menu_nrows=${#menu[@]}
 
 # Menu entries that may trigger a confirmation message
-menu_confirm="Shutdown Reboot Hibernate Suspend Halt Logout"
+menu_confirm="Shutdown Reboot Suspend Logout"
 
 launcher_exe=""
 launcher_options=""
