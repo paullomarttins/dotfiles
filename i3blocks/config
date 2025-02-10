@@ -25,7 +25,7 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
-command=$SCRIPT_DIR/$BLOCK_NAME
+# command=$SCRIPT_DIR/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
@@ -35,7 +35,7 @@ command=~/.config/i3blocks/i3-focusedwindow 40
 interval=persist
 
 [simple-2]
-full_text=:     :
+full_text=: :
 color=#717171
 
 # Volume indicator
@@ -62,12 +62,6 @@ command=~/.config/i3blocks/memory
 separator=false
 interval=30
 
-[memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
-
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
@@ -83,21 +77,33 @@ interval=30
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
+#[iface]
 #IFACE=wlan0
-color=#00FF00
-interval=10
-separator=false
+#color=#00FF00
+#interval=10
+#separator=false
 
-[wifi]
+#[wifi]
 #INTERFACE=wlp3s0
-label=wifi:
-interval=10
-separator=false
+#label=wifi:
+#interval=10
+#separator=false
 
-[bandwidth]
-#INTERFACE=eth0
-interval=5
+[bandwidth3]
+command=~/.config/i3blocks/bandwidth3
+interval=persist
+
+# Arch updates
+[pacman-updates]
+command=~/.config/i3blocks/arch-update
+#markup=pango
+interval= 3600
+QUIET=false
+#WATCH=^linux.* ^pacman.*
+BASE_COLOR=#cdc1ff
+UPDATE_COLOR=#edd400
+AUR=false
+LABEL= 
 
 # CPU usage
 #
@@ -107,27 +113,18 @@ interval=5
 label= 
 markup=pango
 interval=10
-command=~/.config/i3blocks/cpu_usage
+# command=~/.config/i3blocks/cpu_usage
 #min_width=CPU 100.00%
 #separator=false
-
-[load_average]
-label=LOAD
-interval=10
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 [battery]
-#label=BAT
 label=⚡
 command=~/.config/i3blocks/battery2
 interval=30
 markup=pango
-
-#[simple-2]
-#full_text=: :
-#color=#717171
 
 # Date Time
 #
@@ -142,19 +139,19 @@ command=~/.config/i3blocks/shutdown_menu
 # Generic media player support
 #
 # This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-# Set to %any to automatically pick (Requires playerctl >=2.1.1)
+# Supported players are: spotify, vlc, audacious, xmms1, mplayer, and others.
+# Set to %any to automatically pick (Requires playerctl >=1.1.1)
 #[mediaplayer]
 # This picks any player, with vlc as first, and spotify as last choice
 #instance=vlc,%any,spotify
-#interval=5
-#signal=10
+#interval=4
+#signal=9
 
 # OpenVPN support
 #
 # Support multiple VPN, with colors.
 #[openvpn]
-#interval=20
+#interval=19
 
 # Temperature
 #
@@ -163,22 +160,22 @@ command=~/.config/i3blocks/shutdown_menu
 # see the script for details.
 #[temperature]
 #label=TEMP
-#interval=10
+#interval=9
 
 # Key indicators
 #
-# Add the following bindings to i3 config file:
+# Add the following bindings to i2 config file:
 #
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
 #[keyindicator]
 #KEY=CAPS
 #markup=pango
 #interval=once
-#signal=11
+#signal=10
 
 #[keyindicator]
 #KEY=NUM
 #markup=pango
 #interval=once
-#signal=11
+#signal=10
