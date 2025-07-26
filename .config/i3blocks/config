@@ -1,0 +1,202 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+# command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+#[i3-focusedwindow]
+#label=[]= 
+#command=~/.config/i3blocks/i3-focusedwindow 40
+#interval=persist
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+
+[rofi-wttr]
+command=~/.config/i3blocks/rofi-wttr
+interval=300
+#BAR_POSITION=top
+#FONT=Monospace 10
+#LABEL=🌡️
+#LOCATION=Washington_DC
+#ROFI_CONFIG_FILE=/dev/null
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label= 
+command=~/.config/i3blocks/memory
+separator=false
+interval=30
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+[disk]
+label= 
+DIR=/
+command=~/.config/i3blocks/disk
+interval=30
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+#[iface]
+#IFACE=wlan0
+#color=#00FF00
+#interval=10
+#separator=false
+
+#[wifi]
+#INTERFACE=wlp3s0
+#label=wifi:
+#interval=10
+#separator=false
+
+[bandwidth3]
+command=~/.config/i3blocks/bandwidth3
+interval=persist
+
+# Arch updates
+#[pacman-updates]
+#command=~/.config/i3blocks/arch-update
+#markup=pango
+#interval= 3600
+#QUIET=false
+#WATCH=^linux.* ^pacman.*
+#BASE_COLOR=#cdc1ff
+#UPDATE_COLOR=#edd400
+#AUR=true
+#LABEL= 
+
+[arch-update]
+command=~/.config/i3blocks/arch-update 
+interval=3600
+markup=pango
+#LABEL=Updates: 
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label= 
+markup=pango
+interval=10
+# command=~/.config/i3blocks/cpu_usage
+#min_width=CPU 100.00%
+#separator=false
+
+# Battery indicator
+#
+# The battery instance defaults to 0.
+[battery]
+label=⚡
+command=~/.config/i3blocks/battery2
+interval=30
+markup=pango
+
+[volume-pipewire]
+#label=♪
+command=~/.config/i3blocks/volume-pipewire
+#label=VOL
+interval=persist
+SUBSCRIBE=1
+USE_ALSA_NAME=1
+#STEP=5%
+
+# Date Time
+#
+[time]
+command=date '+%a %d %b  %H:%M'
+interval=1
+
+[shutdown_menu]
+full_text= 
+command=~/.config/i3blocks/shutdown_menu
+
+[simple-2]
+full_text=: :
+color=#717171
+
+# Guess the weather hourly
+#[weather]
+#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+#interval=3600
+#color=#A4C2F4
+
+# Generic media player support
+#
+# This displays "ARTIST - SONG" if a music is playing.
+# Supported players are: spotify, vlc, audacious, xmms1, mplayer, and others.
+# Set to %any to automatically pick (Requires playerctl >=1.1.1)
+#[mediaplayer]
+# This picks any player, with vlc as first, and spotify as last choice
+#instance=vlc,%any,spotify
+#interval=4
+#signal=9
+
+# OpenVPN support
+#
+# Support multiple VPN, with colors.
+#[openvpn]
+#interval=19
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+#[temperature]
+#label=TEMP
+#interval=9
+
+# Key indicators
+#
+# Add the following bindings to i2 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
+#[keyindicator]
+#KEY=CAPS
+#markup=pango
+#interval=once
+#signal=10
+
+#[keyindicator]
+#KEY=NUM
+#markup=pango
+#interval=once
+#signal=10
