@@ -1,0 +1,27 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "Terminess Nerd Font", style = "Medium" }
+bold = { family = "Terminess Nerd Font", style = "Bold" }
+italic = { family = "Terminess Nerd Font", style = "Medium Italic" }
+bold_italic = { family = "Terminess Nerd Font", style = "Bold Italic" }
+size = 10
+
+[window]
+title = "Alacritty"
+dynamic_title = false
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = true
+
+[keyboard]
+bindings = [
+{ key = "F", mods = "Control|Shift", action = "SearchForward" },
+{ key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+{ key = "V", mods = "Control|Shift", action = "Paste" },
+{ key = "M", mods = "Control|Shift", action = "CreateNewWindow" }
+]
