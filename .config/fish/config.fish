@@ -8,6 +8,8 @@ pyenv init - | source
 
 starship init fish | source
 
+alias bundler="~/.local/share/gem/ruby/3.4.0/bin/bundler"
+
 function fish_greeting
     echo Hello $USER!
     fortune brasil
