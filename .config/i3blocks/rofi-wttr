@@ -17,7 +17,7 @@ print_weather_report() {
   if [[ $LOCATION != " " ]]; then
     curl https://wttr.in/$LOCATION?T
   else
-    curl https://wttr.in/?T
+    curl https://wttr.in/gig?T
   fi
 }
 
