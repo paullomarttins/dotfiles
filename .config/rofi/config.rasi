@@ -1,9 +1,9 @@
 configuration {
-	display-drun: "Apps:";
-	display-window: "Window:";
+	display-drun: "Apps: ";
+	display-window: "Window: ";
 	drun-display-format: "{icon} {name}";
 	font: "MesloLGS Nerd Font Mono 10";
-	modi: "window,run,drun";
+	modi: "window#run#drun";
 	show-icons: true;
 	icon-theme: "Papirus-Dark";
 }
@@ -17,12 +17,12 @@ configuration {
 
 * {
 	bg: #333333;
-	bg-alt: #444b6a;
+	bg-alt: #383c4a;
 
 	fg: #ff7f3e;
 	fg-alt: #FFFFFF;
 
-	background-color: @bg;
+	background-color: transparent;
 
 	border: 0;
 	margin: 0;
@@ -31,16 +31,32 @@ configuration {
 }
 
 window {
-	width: 45%;
+	background-color: @bg;
+	width: 640;
 }
 
 element {
-	padding: 12;
+	padding: 8px 10px;
 	text-color: @fg-alt;
+	background-color: transparent;
+}
+
+element normal active {
+	text-color: @fg-alt;
+}
+
+element alternate active {
+	text-color: @fg-alt;
+}
+
+element selected normal, element selected active {
+	background-color: @fg;
+	text-color: #212529;
 }
 
 element selected {
 	text-color: @fg;
+	background-color: @fg;
 }
 
 element-text {
@@ -50,16 +66,21 @@ element-text {
 }
 
 element-icon {
-	size: 30;
+	size: 1.5em;
 }
 
 entry {
 	background-color: @bg-alt;
-	padding: 12;
+	padding: 12px;
 	text-color: @fg;
+	placeholder: "Pesquisar...";
+	placeholder-color: #adb5bd;
+	border-radius: 5px;
 }
 
 inputbar {
+	padding: 5px;
+	spacing: 5px;
 	children: [prompt, entry];
 }
 
@@ -75,8 +96,9 @@ mainbox {
 }
 
 prompt {
-	background-color: @bg-alt;
+	background-color: @fg;
 	enable: true;
 	padding: 12 0 0 12;
-	text-color: @fg;
+	text-color: #212529;
+	border-radius: 5px;
 }
