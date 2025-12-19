@@ -40,9 +40,9 @@ markup=pango
 # The second parameter overrides the mixer selection
 # See the script for details.
 
-[rofi-wttr]
-command=~/.config/i3blocks/rofi-wttr
-interval=300
+#[rofi-wttr]
+#command=~/.config/i3blocks/rofi-wttr
+#interval=300
 #BAR_POSITION=top
 #FONT=Monospace 10
 #LABEL=🌡️
