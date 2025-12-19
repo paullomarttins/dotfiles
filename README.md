@@ -1,3 +1,15 @@
-# dotfiles
+# Dotfiles
 
-Minhas configurações de ambiente i3, i3blocks, rofi e mais!!
+Minhas configurações básicas no ambiente i3wm e mais algumas coisas!!
+
+### Requisitos:
+
+Antes de inciar o backup dos dotfiles, instale os pacotes básicos necessários em pkglist.txt.
+
+``` # pacman -S --needed - < pkglist.txt ```
+
+
+```
+```
+```
+```
