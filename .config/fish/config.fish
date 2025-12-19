@@ -16,4 +16,4 @@ function fish_greeting
     echo The time is (set_color yellow; date +%T; set_color normal) and this machine is called $hostname
 end
 
-alias config='/usr/bin/git --git-dir=/home/pmartins/.dotfiles/ --work-tree=/home/pmartins'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
