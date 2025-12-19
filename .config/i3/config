@@ -55,8 +55,8 @@ title_align center
 for_window [class="^.*"] border pixel 0
 
 # adjust screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set -5%
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d "intel_backlight" set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d "intel_backlight" set 5%-
 
 # start Flameshot Screenshot
 bindsym Print exec --no-startup-id flameshot gui
@@ -293,4 +293,4 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 # exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
 exec_always --no-startup-id /home/$USER/.config/i3/dualmonitor.sh
-exec_always --no-startup-id feh --bg-fill /home/$USER/Pictures/wallpaper/007.jpg
+exec_always --no-startup-id feh --bg-fill /home/$USER/Imagens/wallpaper/007.jpg
