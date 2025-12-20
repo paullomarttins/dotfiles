@@ -24,6 +24,7 @@ dmidecode
 dnsmasq
 docker
 docker-compose
+dosfstools
 efibootmgr
 fd
 feh
@@ -118,6 +119,8 @@ unzip
 vim
 virt-manager
 vlc
+vlc-plugin-ffmpeg
+vlc-plugin-gstreamer
 wget
 whois
 wireguard-tools
