@@ -47,4 +47,5 @@ $ dotfiles config status.showUntrackedFiles no
 #### Referências:
 
 [pacman/Tips and tricks](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks)
+
 [dotfiles](https://wiki.archlinux.org/title/Dotfiles)
