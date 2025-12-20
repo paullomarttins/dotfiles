@@ -66,8 +66,6 @@ neovim-lspconfig
 network-manager-applet
 networkmanager
 numlockx
-nvidia-dkms
-nvidia-settings
 pacman-contrib
 papirus-icon-theme
 pavucontrol
@@ -89,6 +87,7 @@ ripgrep
 ristretto
 rofi
 rsync
+samba
 scribus
 scrot
 smartmontools
