@@ -160,10 +160,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+b move up
-bindsym $mod+Shift+o move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -263,16 +263,15 @@ for_window [class=TelegramDesktop] focus
 # /* -------------------------------- Floating rules ----------------------------------- */
 
 # set floating (nontiling) for apps needing it
-for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
-for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="(?i)blueman-manager" instance="blueman-manager"] floating enable
+for_window [class="(?i)keepassxc"] floating enable
 
 # set floating (nontiling) for special apps
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="(?i)Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
-for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [class="Pamac-manager"] floating enable
+for_window [class="(?i)Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
 
 # set border of floating window
